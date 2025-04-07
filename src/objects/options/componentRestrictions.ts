@@ -1,10 +1,9 @@
 export class ComponentRestrictions {
     public country: string;
 
-    constructor(obj?: Partial<ComponentRestrictions>) {
-        if (!obj)
-            return;
+    constructor(obj?: { country?: string }) {
+        if (!obj) return;
 
-        Object.assign(this, obj);
+        this.country = obj.country;
     }
 }
