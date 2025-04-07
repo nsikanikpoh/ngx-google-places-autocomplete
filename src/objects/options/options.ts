@@ -1,7 +1,3 @@
-import { LatLng } from '../latLng';
-import { LatLngBounds } from "../latLngBounds";
-import { ComponentRestrictions } from "./componentRestrictions";
-
 export class Options {
     public bounds: LatLngBounds;
     public componentRestrictions: ComponentRestrictions;
@@ -9,9 +5,16 @@ export class Options {
     public fields: string[];
     public strictBounds: boolean;
     public origin: LatLng;
-    public constructor(opt?: Partial<Options>) {
-        if (!opt)
-            return;
+
+    constructor(opt?: {
+        bounds?: LatLngBounds;
+        componentRestrictions?: ComponentRestrictions;
+        types?: string[];
+        fields?: string[];
+        strictBounds?: boolean;
+        origin?: LatLng;
+    }) {
+        if (!opt) return;
 
         Object.assign(this, opt);
     }
